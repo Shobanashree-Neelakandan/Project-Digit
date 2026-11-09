@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+
+    <!-- <nav>
+        <div class="nav-list">
+            <ul>
+                <li><a href="">Login</a></li>
+                <li><a href="">Rules</a></li>
+                <li><a href="">Game</a></li>
+            </ul>
+        </div>
+        <div class="nav-button">
+            <button>Start Game</button>
+        </div>
+    </nav> -->
+    <!-- welcome -->
+    <div class="main-page">
+        <div class="welcome">
+            <h3>Welcome to </h3>
+            <h1>DIGIT VAULT</h1>
+            <!-- <ul>
+            <li>Think.</li>
+            <li>Decode.</li>
+            <li>Discover the Secret.</li>
+        </ul> -->
+            <p>Every number hides a secret. Every clue brings you closer. <br> Test your logic and unlock the digits.
+            </p>
+            <div class="welc-button">
+                <button id="vault-enter">ENTER THE VAULT <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <span>Your mind is the only key.</span>
+        </div>
+    </div>
+
+    <!-- login page -->
+
+    <div class="login">
+
+        <div class="log-left">
+            <span>DIGIT VAULT</span>
+            <h2>System Initialized</h2>
+            <p>Awaiting authorized authentication...</p>
+            <h3>Authenticate to initialize your vault.</h3>
+        </div>
+
+        <div class="log-right">
+            <h2> CREATE YOUR ACCOUNT</h2>
+            <form action="" id="login-form">
+                <label for="">Name</label><br>
+                <input type="text" name="" id="name" placeholder="Enter your Name" required><br>
+
+                <label for="">Mail-Id</label><br>
+                <input type="email" name="" id="mail" placeholder="Enter your Mail-id" required><br>
+
+                <label for="">Password</label><br>
+                <input type="password" name="" id="pwd" required><br>
+
+                <div class="log-button">
+                    <button type="submit">INITIALIZE ACCESS <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- rules page -->
+
+    <div class="rules-page">
+        <div class="rules">
+            <p>Welcome <span class="display-name"></span> !</p>
+            <h1>CRACK THE CODE</h1>
+            <p>Guess to break the code. Think carefully, <br> analyse every clue and unlock the digit.</p>
+
+            <h2>Rules for unlock the code</h2>
+            <ul>
+                <li>Find the hidden 4-digit code.</li>
+                <li>All digits are unique.</li>
+                <li>The first digit cannot be zero.</li>
+                <li>You have 8 attempts to crack the code.</li>
+                <li>Use the feedback to improve each guess.</li>
+            </ul>
+
+            <div class="attempt-box">
+                <div class="attempt">
+                    <span>8</span>
+                    <p>Attempts</p>
+                </div>
+                <!-- <div class="attempt">
+                    <span>60s</span>
+                    <p>Time Limit</p>
+                </div> -->
+            </div>
+            <div class="start-button">
+                <button type="button" onclick="showGame()">Let's Find the Code</button>
+            </div>
+        </div>
+    </div>
+    <!-- game page -->
+
+    <div class="game">
+        <div class="game-left">
+            <div class="game-title">
+                <h1>IDENTIFY NUMBER</h1>
+                <P>Crack the 4 digit code.</P>
+            </div>
+            <div class="secret-digit">
+                <h1>Enter 4 - digit Number</h1>
+                <div class="num-button">
+                    <input type="text" name="" class="guess-input" maxlength="1">
+                    <input type="text" name="" class="guess-input" maxlength="1">
+                    <input type="text" name="" class="guess-input" maxlength="1">
+                    <input type="text" name="" class="guess-input" maxlength="1">
+                </div>
+                <div class="digit-submit">
+                    <button id="submit">SUBMIT</button>
+                    <button type="button" id="reset">Reset</button>
+                </div>
+                <p> Every digit is unique. First digit is not zero.</p>
+            </div>
+            <div class="game-attem-time">
+                <div class="game-time">
+
+                    <div class="flex-time">
+                        <h3>Attempts</h3>
+                        <p id="attempt-count">8</p>
+                    </div>
+                </div>
+
+                <div class="game-time">
+                    <!-- <div class="flex-time">
+                        <h3>Time Left</h3>
+                        <p> </p>
+                    </div> -->
+                </div>
+            </div>
+
+        </div>
+        <div class="feedback">
+            <div class="feedb-right">
+                <p id="green"> Correct Position</p>
+                <p id="orange"> Wrong Position (But Number included)</p>
+                <p id="red"> No Match found.</p>
+            </div>
+            <div class="feedb-left">
+                <div class="feed-attempts">
+                    <table>
+                        <thead>
+                            <th>Attempts</th>
+                            <th>Guess</th>
+                            <th>Result</th>
+                        </thead>
+
+                        <tbody id="history">
+                            <!-- <tr>
+                                <td>Attempt</td>
+                                <td>Guess</td>
+                                <td>result</td>
+
+                                <div class="result-box">
+                                    <span class="misplaced">2</span>
+                                    <span class="wrong">5</span>
+                                    <span class="correct">3</span>
+                                    <span class="wrong">4</span>
+                                </div>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
