@@ -391,13 +391,17 @@ body{
 .game{
     height: 100vh;
     /* display: flex; */
+    align-items: flex-start;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-around;
 }
 .game-left{
+    margin-top: 30px;
+    width: 40%;
     border: solid 1px var(--primary-light);
     padding: 20px 30px;
+
+    
 }
 .game-title{
     padding: 20px 0px;
@@ -528,9 +532,12 @@ body{
 }
 
 .feedback{
+    overflow-y: auto;
+    overflow-x: auto;
     color: var(--text-primary);
 }
 .feedb-right{
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -733,6 +740,7 @@ body{
     justify-content: space-around;
 }
 .game-left{
+    width: 100%;
     padding: 0px 0px;
 }
 .secret-digit h1{
