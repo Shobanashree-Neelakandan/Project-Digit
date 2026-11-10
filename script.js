@@ -53,6 +53,8 @@ function showGame(){
     rules.style.display = "none";
     game.style.display = "flex";
 
+    startTimer()
+
 }
 
 function generateSecret(){
@@ -196,6 +198,8 @@ function endgame(){
 
     gameover = true;
 
+    stopTimer()
+
     guessdigit.forEach((input)=>{
         input.disabled = true;
     });
@@ -266,6 +270,8 @@ reset.onclick = ()=>{
 function resetGame(){
 
     secretCode = generateSecret()
+    
+    stopTimer()
 
     attemptleft = 8;
 
@@ -285,4 +291,42 @@ function resetGame(){
     history.innerHTML = "";
 
     guessdigit[0].focus();
+
+    startTimer()
+}
+
+let displayTime = document.querySelector("#time-display")
+
+let timeInterval;
+
+let timeleft = 120;
+
+function startTimer(){
+
+    timeleft = 120
+
+    timeInterval = setInterval(()=>{
+
+        timeleft--
+
+        let minutes = Math.floor(timeleft / 60);
+
+        let seconds = timeleft % 60
+
+        displayTime.textContent = `${String(minutes).padStart(2, "0")} : ${String(seconds).padStart(2, "0")}`
+
+        if(timeleft <= 0){
+
+            stopTimer()
+            
+            endgame()
+            
+            alert(`Times Out... Secret code is : ${secretCode}`)
+        }
+
+    },1000)
+}
+
+function stopTimer(){
+    clearInterval(timeInterval)
 }
